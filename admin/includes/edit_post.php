@@ -52,6 +52,8 @@ if(isset($_POST['submit']))
 		die("QUERY FAILED " . mysqli_error($connection));
 	}
 
+	echo "<p class='bg-success'>Post Updated. <a href='../post.php?p_id={$p_id}'>View post</a> or <a href='posts.php'>Edit More Posts</a></p>";
+
 	
 }
 ?>

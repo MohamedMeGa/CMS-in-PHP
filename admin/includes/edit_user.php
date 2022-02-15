@@ -14,6 +14,7 @@ if($_GET['edit_id'])
         $user_firstname	= $row['user_firstname'];
         $user_lastname	= $row['user_lastname'];
         $user_role		= $row['user_role'];
+        $salt			= $row['randSalt'];
     
 	}
 }
@@ -34,7 +35,8 @@ if(isset($_POST['edit_user'])){
 	$user_firstname		= $_POST['user_firstname'];
 	$user_lastname		= $_POST['user_lastname'];
 
-
+	$user_password = crypt($user_password,  $salt);
+	echo $user_password;
 	move_uploaded_file($user_image_tmp, "../images/$user_image");
 
 	$query = "UPDATE users SET username = '{$username}', user_email = '{$user_email}', user_password = '{$user_password}', user_role = '{$user_role}', user_image = '{$user_image}', user_firstname = '{$user_firstname}', user_lastname = '{$user_lastname}' WHERE user_id = {$user_id}";

@@ -36,7 +36,7 @@
 										echo " <td>$user_role</td>";
 										echo " <td><a href='users.php?admin_role={$user_id}'>Admin</td>";
 										echo " <td><a href='users.php?subscribtor_role={$user_id}'>Subscribtor</td>";
-										echo " <td><a href='users.php?delete={$user_id}'>Deleted</td>";
+										echo " <td><a onClick=\"javascript: return confirm('Are you Sure you Want to Delete this User');\" href='users.php?delete={$user_id}'>Deleted</td>";
 										echo " <td><a href='users.php?source=edit_user&edit_id={$user_id}'>Edit</td>";
 										echo "<tr>";
 

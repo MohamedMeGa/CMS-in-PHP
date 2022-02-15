@@ -15,7 +15,11 @@
                     <div class="col-lg-12">
                         <h1 class="page-header">
                             Welcome To Admin
-                            <small>Subheading</small>
+                            <small><?php echo $_SESSION['user_firstname'] ?></small>
+                            
+                            <small>Today date: <?php echo date('d-m-y'); ?></small>
+        
+        
                         </h1>
 
                         <?php

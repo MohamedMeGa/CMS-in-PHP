@@ -19,8 +19,8 @@ if(isset($_POST['create_post'])){
 	if (!$result) {
 		die("QUERY FAILED" . mysqli_error($connection));
 	}
-
-	
+	$p_id = mysqli_insert_id($connection);
+	echo "<p class='bg-success'>Post Created. <a href='../post.php?p_id={$p_id}'>View post</a> or <a href='posts.php'>Edit More Posts</a></p>";
 }
 ?>
 
@@ -31,19 +31,18 @@ if(isset($_POST['create_post'])){
 
 
 
-
-
 <form action="" method="post" enctype="multipart/form-data">
+
 
 	<div class="form-group">
 		<label for="title">Post Title</label>
-		<?php echo date('d-m-y'); ?>
+		
 		<input type="text" class="form-control" name="post_title">
 	</div>
 
 	<div class="form-group">
 		<label for="post">Post Category Title</label>
-		<select name="post_category_id" id="">
+		<select name="post_category_id" class="form-control">
 			<?php
 
 			$query = "SELECT * FROM categories";
@@ -63,7 +62,12 @@ if(isset($_POST['create_post'])){
 
 	<div class="form-group">
 		<label for="post_status">Post Status</label>
-		<input type="text" class="form-control" name="post_status">
+		<!-- <input type="text" class="form-control" name="post_status"> -->
+		<select class="form-control" name="post_status">
+			<option value="denied">Post Status</option>
+			<option class="active">Active</option>
+			<option value="denied">Denied</option>
+		</select>
 	</div>
 
 	<div class="form-group">

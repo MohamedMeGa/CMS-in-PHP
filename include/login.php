@@ -26,8 +26,11 @@ if(isset($_POST['login']))
 		$db_user_firstname 	= $row['user_firstname'];
 		$db_user_lastname	= $row['user_lastname'];
 		$db_user_role		= $row['user_role'];
+		$salt   			= $row['randSalt'];
 	}
-	echo $db_username;
+
+
+        $password = crypt($password,  $salt);
 	
 	if($username === $db_username && $password === $db_password){
 
